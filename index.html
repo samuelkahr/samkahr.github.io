@@ -9,9 +9,35 @@
   analytics.page();
   }}();
 
-  //Adding segment consent manger stand alone script https://github.com/segmentio/consent-manager#standalone-script
+      </script>
 
-  window.consentManagerConfig = function(exports) {
+</head> 
+<body> 
+<h1>What is your favorite place to travel?</h1> 
+<p>I am building a directory of the sweetest travel destinations.</p>  
+<form name="travel" onsubmit="identify(event)">
+     What is your favorite travel destination?
+    <input name="destination" required="" size="81" type="text"/> 
+    <br><br><br> 
+    Any recommendations (cool things to do, places to visit or restaurants to eat)? 
+    <br><br> 
+    <textarea cols="81" name="details" required="" rows="10">
+    </textarea> 
+    <br><br> 
+    Name: <input name="fullname" required="" size="75" type="text"/> 
+    <br><br> 
+    Email: <input name="email" required="" size="75" type="email"/> 
+    <br><br>
+    <input name="submit" type="submit" value="submit"/>
+</form> 
+
+<div id="target-container"></div>
+
+<script>
+
+//Adding segment consent manger stand alone script https://github.com/segmentio/consent-manager#standalone-script
+
+window.consentManagerConfig = function(exports) {
     var React = exports.React
     var inEU = exports.inEU
 
@@ -48,32 +74,9 @@
     }
   }
 
-      </script>
+</script>
 
 <script src="https://unpkg.com/@segment/consent-manager@4.0.0/standalone/consent-manager.js" ></script>
-
-</head> 
-<body> 
-<h1>What is your favorite place to travel?</h1> 
-<p>I am building a directory of the sweetest travel destinations.</p>  
-<form name="travel" onsubmit="identify(event)">
-     What is your favorite travel destination?
-    <input name="destination" required="" size="81" type="text"/> 
-    <br><br><br> 
-    Any recommendations (cool things to do, places to visit or restaurants to eat)? 
-    <br><br> 
-    <textarea cols="81" name="details" required="" rows="10">
-    </textarea> 
-    <br><br> 
-    Name: <input name="fullname" required="" size="75" type="text"/> 
-    <br><br> 
-    Email: <input name="email" required="" size="75" type="email"/> 
-    <br><br>
-    <input name="submit" type="submit" value="submit"/>
-</form> 
-
-<div id="target-container"></div>
-
 
 <script type="text/javascript">
     function identify(e){
