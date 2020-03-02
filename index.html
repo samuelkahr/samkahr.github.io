@@ -42,22 +42,37 @@
 </form> 
 
 <script type="application/javascript">
-    window.consentManagerConfig = function(exports) {
-      return {
-        container: '#target-container',
-        writeKey: 'VuOZbPNXuR76IXTQeYaU6twg3qpSNAw9',
-        bannerContent:
-          'We use cookies (and other similar technologies) to collect data to improve your experience on our site. Aimee is funny',
-        bannerSubContent: 'You can change your preferences at any time.',
-        preferencesDialogTitle: 'Website Data Collection Preferences',
-        preferencesDialogContent:
-          'We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.',
-        cancelDialogTitle: 'Are you sure you want to cancel?',
-        cancelDialogContent:
-          "Your preferences have not been saved. By continuing to use our website, you're agreeing to our Website Data Collection Policy",
-        closeBehavior: 'accept'
-      }
-    }
+  window.consentManagerConfig = function(exports) {
+
+let customCategories = {
+       'Analytics': {
+          purpose: 'Provide statistical information on site usage, e.g., web analytics so we can improve this website over time.', integrations: ['Google Analytics','Mixpanel','Amplitude']         
+       },
+       'Functional A': {
+         purpose: 'Enables enhanced functionality, such as videos and live chat. If you do not allow these, then some or all of these functions may not work properly.', integrations: ['Salesforce','Salesforce Marketing Cloud','Visual Tagger']      
+       },
+       'Do Not Sell': {
+          purpose:'To give the right to opt out of the sale of personal data.', integrations: ['MailChimp', 'AdWords']     
+       }
+   }; 
+
+     var prefs = {
+       
+       container: '#target-container',       
+       writeKey: 'VuOZbPNXuR76IXTQeYaU6twg3qpSNAw9',
+       bannerContent: 'Consent manager is awesome! We use cookies (and other similar technologies) to collect data to improve your experience on our site. Also, Segment is Awesome',
+       bannerSubContent: 'You can change your preferences at any time.',
+       cancelDialogContent: 'Your preferences have not been saved. By continuing to use our website, you are agreeing to our Website Data Collection Policy',
+       cancelDialogTitle: 'Are you sure you want to cancel?',
+       closeBehavior: 'accept',
+       implyConsentOnInteraction: false,
+       preferencesDialogContent: 'We use data collected by cookies and JavaScript libraries, which are necessary for website functioning, to improve user’s browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.',
+       preferencesDialogTitle: 'Website Data Collection Preferences',
+       customCategories: customCategories,
+       
+   }        
+     return prefs; 
+}
   </script>
 
 <script src="https://unpkg.com/@segment/consent-manager@4.0.0/standalone/consent-manager.js" ></script>
