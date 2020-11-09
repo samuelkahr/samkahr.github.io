@@ -49,7 +49,7 @@ let customCategories = {
        bannerSubContent: 'You can change your preferences at any time.',
        cancelDialogContent: 'Your preferences have not been saved. By continuing to use our website, you are agreeing to our Website Data Collection Policy',
        cancelDialogTitle: 'Are you sure you want to cancel?',
-       closeBehavior: 'accept',
+       closeBehavior:(categories) => ({...categories}),
        implyConsentOnInteraction: false,
        preferencesDialogContent: 'We use data collected by cookies and JavaScript libraries, which are necessary for website functioning, to improve user’s browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.',
        preferencesDialogTitle: 'Website Data Collection Preferences',
